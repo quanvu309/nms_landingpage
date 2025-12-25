@@ -1,0 +1,8 @@
+{
+  "name": "Nova Membership",
+  "description": "Nền tảng trải nghiệm lifestyle hàng đầu miền Nam. Tích hợp cộng đồng, lập kế hoạch du lịch thông minh và đặc quyền NovaPass.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ]
+}
