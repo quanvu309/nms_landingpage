@@ -1,125 +1,129 @@
 
 import React from 'react';
-import { Search, MapPin, Star, MoreHorizontal, UserPlus, Heart, MessageCircle, Share2, Plus } from 'lucide-react';
+/* Added Layers to the imports from lucide-react */
+import { Search, MapPin, Star, MoreHorizontal, UserPlus, Heart, MessageCircle, Share2, Plus, Layers } from 'lucide-react';
 import { MOCK_PLACES, MOCK_USER_LISTS } from '../constants';
 
 const HomeFeed: React.FC = () => {
   return (
-    <div className="animate-fadeIn pb-10 bg-white">
-      {/* Header Search */}
-      <div className="p-4 bg-white sticky top-[72px] z-40 border-b border-gray-50">
+    <div className="animate-fadeIn pb-10 bg-[#FCFCFA]">
+      {/* Header Search - Minimalist */}
+      <div className="p-6 bg-[#FCFCFA] sticky top-0 z-40 border-b border-black/5">
         <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-300" />
           <input 
             type="text" 
-            placeholder="Tìm địa điểm ăn uống, nghỉ dưỡng..." 
-            className="w-full bg-gray-50 border border-gray-100 rounded-[1.5rem] py-3 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
+            placeholder="Khám phá NovaWorld, NovaDreams..." 
+            className="w-full bg-white border border-black/5 rounded-2xl py-4 pl-12 pr-4 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500/10 shadow-sm"
           />
         </div>
       </div>
 
-      {/* Tabs */}
-      <div className="flex px-4 pt-4 pb-2 bg-white gap-6">
-        <button className="pb-2 text-sm font-bold text-gray-900 border-b-2 border-emerald-600">Dành cho bạn</button>
-        <button className="pb-2 text-sm font-bold text-gray-400">Đang theo dõi <span className="inline-block w-2 h-2 bg-emerald-500 rounded-full ml-0.5"></span></button>
-        <button className="pb-2 text-sm font-bold text-gray-400">Mới nhất</button>
+      {/* Tabs - Understated */}
+      <div className="flex px-6 pt-6 pb-2 gap-10">
+        <button className="pb-3 text-[10px] font-black uppercase tracking-widest text-gray-900 border-b-2 border-emerald-600">Dành cho bạn</button>
+        <button className="pb-3 text-[10px] font-bold uppercase tracking-widest text-gray-300 hover:text-gray-500 transition-colors">Đang theo dõi</button>
+        <button className="pb-3 text-[10px] font-bold uppercase tracking-widest text-gray-300 hover:text-gray-500 transition-colors">Nova+ Feed</button>
       </div>
 
-      {/* Growth Hack: Find Friends */}
-      <div className="p-4">
-        <div className="bg-emerald-600 rounded-[2rem] p-6 text-white relative overflow-hidden shadow-xl shadow-emerald-600/20">
+      {/* Growth Hack: Community Connection */}
+      <div className="px-6 py-6">
+        <div className="bg-[#1A1A1A] rounded-[2.5rem] p-8 text-white relative overflow-hidden shadow-3xl">
           <div className="relative z-10">
-            <h3 className="text-lg font-bold mb-1">Kết nối bạn bè</h3>
-            <p className="text-emerald-100 text-[10px] mb-6 opacity-80 uppercase tracking-widest">Tương tác để nhận NPoint mỗi ngày</p>
+            <h3 className="text-xl font-serif italic mb-1">Nova Community</h3>
+            <p className="text-emerald-400 text-[8px] font-black uppercase tracking-[0.3em] mb-8">Kết nối & Tích lũy NPoint</p>
             <div className="flex gap-4 overflow-x-auto hide-scrollbar">
               {[1, 2, 3, 4].map(i => (
-                <div key={i} className="flex-shrink-0 bg-white/10 backdrop-blur-md rounded-2xl p-3 w-32 border border-white/20 flex flex-col items-center">
-                  <img src={`https://i.pravatar.cc/100?u=f${i}`} className="w-12 h-12 rounded-full border-2 border-emerald-400 shadow-lg mb-2" alt=""/>
-                  <p className="text-[10px] font-bold truncate w-full text-center">user_traveler_{i}</p>
-                  <button className="mt-3 bg-white text-emerald-700 text-[9px] font-bold px-3 py-1.5 rounded-lg w-full">Theo dõi</button>
+                <div key={i} className="flex-shrink-0 bg-white/5 backdrop-blur-xl rounded-2xl p-4 w-36 border border-white/10 flex flex-col items-center">
+                  <img src={`https://i.pravatar.cc/100?u=nova_u${i}`} className="w-14 h-14 rounded-full border-2 border-emerald-500/30 shadow-2xl mb-3 object-cover" alt=""/>
+                  <p className="text-[9px] font-bold truncate w-full text-center opacity-80">member_{i}502</p>
+                  <button className="mt-4 bg-white text-black text-[8px] font-black uppercase tracking-widest px-4 py-2 rounded-xl w-full hover:bg-emerald-500 hover:text-white transition-all">Follow</button>
                 </div>
               ))}
-              <div className="flex-shrink-0 bg-white/5 rounded-2xl p-3 w-16 border border-dashed border-white/20 flex flex-col items-center justify-center">
-                 <Plus className="w-5 h-5 text-white/40" />
+              <div className="flex-shrink-0 bg-white/5 rounded-2xl p-4 w-20 border border-dashed border-white/10 flex flex-col items-center justify-center opacity-40">
+                 <Plus className="w-6 h-6 text-white" />
               </div>
             </div>
           </div>
-          <div className="absolute -right-8 -bottom-8 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+          <div className="absolute top-0 right-0 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
         </div>
       </div>
 
-      {/* Feed Content: UGC Lists */}
-      <div className="p-4 space-y-8">
+      {/* Main Feed: UGC Artistry */}
+      <div className="px-6 space-y-12 py-6">
         {MOCK_USER_LISTS.map(list => (
           <div key={list.id} className="group">
-            <div className="flex items-center justify-between mb-4">
-               <div className="flex items-center gap-3">
-                  <img src={list.creator.avatar} className="w-10 h-10 rounded-full border-2 border-gray-50 shadow-sm" alt=""/>
+            <div className="flex items-center justify-between mb-5">
+               <div className="flex items-center gap-4">
+                  <img src={list.creator.avatar} className="w-11 h-11 rounded-full border border-black/5 shadow-sm object-cover" alt=""/>
                   <div>
-                     <p className="text-xs font-bold text-gray-900">{list.creator.name} <span className="font-normal text-gray-400 ml-1">đã chia sẻ</span></p>
-                     <p className="text-[10px] text-gray-400">{list.updatedAt}</p>
+                     <p className="text-[10px] font-black text-gray-900 uppercase tracking-tight">{list.creator.name}</p>
+                     <p className="text-[9px] text-gray-300 font-bold uppercase tracking-widest">Đăng tại {list.updatedAt}</p>
                   </div>
                </div>
-               <button className="w-8 h-8 rounded-full hover:bg-gray-50 flex items-center justify-center text-gray-400">
+               <button className="w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center text-gray-300 transition-colors">
                   <MoreHorizontal className="w-5 h-5" />
                </button>
             </div>
             
-            <div className="relative rounded-[2.5rem] overflow-hidden shadow-xl shadow-black/5 bg-gray-50 border border-gray-100 group">
-               <div className="relative h-64 overflow-hidden">
-                  <img src={list.places[0].imageUrl} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt=""/>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
-                     <h3 className="text-white font-bold text-2xl leading-tight mb-2">{list.title}</h3>
-                     <div className="flex items-center gap-4 text-white/70 text-[10px] font-bold uppercase tracking-widest">
-                        <span>{list.itemCount} Địa điểm</span>
-                        <span className="w-1 h-1 bg-white/40 rounded-full"></span>
-                        <span className="flex items-center gap-1"><MapPin className="w-3 h-3"/> Miền Nam</span>
+            <div className="relative rounded-[3rem] overflow-hidden shadow-2xl bg-white border border-black/5 transition-all duration-700 hover:shadow-emerald-500/5">
+               <div className="relative h-72 overflow-hidden">
+                  <img src={list.places[0].imageUrl} className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105" alt=""/>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
+                     <h3 className="text-white font-serif italic text-3xl leading-tight mb-3">{list.title}</h3>
+                     <div className="flex items-center gap-6 text-white/50 text-[9px] font-black uppercase tracking-[0.2em]">
+                        <span className="flex items-center gap-2"><Layers className="w-3.5 h-3.5"/> {list.itemCount} Địa điểm</span>
+                        <span className="flex items-center gap-2"><MapPin className="w-3.5 h-3.5"/> Southern Vietnam</span>
                      </div>
                   </div>
                </div>
-               <div className="p-5 flex items-center justify-between bg-white">
-                  <div className="flex items-center gap-6">
-                     <button className="flex items-center gap-1.5 text-gray-400 hover:text-rose-500 transition-colors">
-                        <Heart className="w-5 h-5" />
-                        <span className="text-[11px] font-bold">1.2k</span>
+               <div className="p-6 flex items-center justify-between">
+                  <div className="flex items-center gap-8">
+                     <button className="flex items-center gap-2 text-gray-400 hover:text-rose-500 transition-colors">
+                        <Heart className="w-5 h-5 stroke-[1.5px]" />
+                        <span className="text-[10px] font-bold tracking-tight">1.8k</span>
                      </button>
-                     <button className="flex items-center gap-1.5 text-gray-400 hover:text-blue-500 transition-colors">
-                        <MessageCircle className="w-5 h-5" />
-                        <span className="text-[11px] font-bold">45</span>
+                     <button className="flex items-center gap-2 text-gray-400 hover:text-emerald-500 transition-colors">
+                        <MessageCircle className="w-5 h-5 stroke-[1.5px]" />
+                        <span className="text-[10px] font-bold tracking-tight">120</span>
                      </button>
-                     <button className="flex items-center gap-1.5 text-gray-400 hover:text-emerald-500 transition-colors">
-                        <Share2 className="w-5 h-5" />
+                     <button className="flex items-center gap-2 text-gray-400 hover:text-black transition-colors">
+                        <Share2 className="w-5 h-5 stroke-[1.5px]" />
                      </button>
                   </div>
-                  <button className="bg-gray-900 text-white text-[10px] font-bold px-6 py-2.5 rounded-full shadow-lg shadow-black/10 hover:scale-105 transition-all">Lưu lịch trình</button>
+                  <button className="bg-[#1A1A1A] text-white text-[9px] font-black uppercase tracking-widest px-8 py-3 rounded-2xl shadow-xl hover:bg-emerald-800 transition-all">Lưu Trip</button>
                </div>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Recommendation Grid */}
-      <div className="px-4 py-4">
-        <h3 className="text-sm font-bold text-gray-900 mb-6 flex items-center justify-between">
-           Gợi ý cho bạn hôm nay
-           <button className="text-[10px] text-emerald-600 uppercase tracking-widest font-bold">Xem thêm</button>
-        </h3>
-        <div className="grid grid-cols-2 gap-4">
+      {/* Editor's Pick: Horizontal Scroll */}
+      <div className="px-6 py-12">
+        <div className="flex items-end justify-between mb-10 border-l-2 border-emerald-600 pl-4">
+           <div>
+              <h3 className="text-xl font-black tracking-tighter text-gray-900 uppercase">Editor's Pick</h3>
+              <p className="text-[9px] font-bold text-gray-300 uppercase tracking-widest mt-1">Gợi ý từ Nova Lifestyle</p>
+           </div>
+           <button className="text-[10px] font-black text-emerald-600 uppercase tracking-widest border-b border-emerald-600 pb-0.5">Tất cả</button>
+        </div>
+        <div className="flex gap-6 overflow-x-auto hide-scrollbar pb-6">
            {MOCK_PLACES.map(place => (
-             <div key={place.id} className="cursor-pointer group">
-                <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden mb-3 shadow-md border border-gray-50">
-                   <img src={place.imageUrl} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt=""/>
-                   <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-1 bg-white/80 backdrop-blur-md rounded-full text-[9px] font-bold text-gray-900">
-                      <Star className="w-2.5 h-2.5 fill-amber-500 text-amber-500" /> {place.rating}
+             <div key={place.id} className="flex-shrink-0 w-64 group cursor-pointer">
+                <div className="relative aspect-[3/4] rounded-[2.5rem] overflow-hidden mb-5 shadow-xl border border-black/5">
+                   <img src={place.imageUrl} className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" alt=""/>
+                   <div className="absolute top-4 left-4 bg-white/80 backdrop-blur-md px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                      <Star className="w-3 h-3 fill-amber-500 text-amber-500" />
+                      <span className="text-[10px] font-black text-gray-900">{place.rating}</span>
                    </div>
-                   <div className="absolute bottom-3 left-3 flex gap-1">
-                      <span className="px-2 py-0.5 bg-emerald-600 text-white text-[7px] font-bold rounded-full uppercase">{place.category}</span>
+                   <div className="absolute bottom-4 left-4">
+                      <span className="px-3 py-1 bg-[#1A1A1A] text-white text-[8px] font-black rounded-lg uppercase tracking-widest">{place.category}</span>
                    </div>
                 </div>
-                <h4 className="text-xs font-bold text-gray-900 line-clamp-1 leading-snug">{place.name}</h4>
-                <div className="flex items-center justify-between mt-1">
-                   <span className="text-[10px] text-gray-400 flex items-center gap-0.5 font-medium"><MapPin className="w-2.5 h-2.5"/> {place.location}</span>
-                   <span className="text-[10px] font-bold text-emerald-600">₫{place.price}</span>
+                <h4 className="text-sm font-bold text-gray-900 leading-tight mb-1 group-hover:text-emerald-700 transition-colors">{place.name}</h4>
+                <div className="flex items-center justify-between">
+                   <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest flex items-center gap-1"><MapPin className="w-3 h-3"/> {place.location}</span>
+                   <span className="text-[10px] font-black text-emerald-700 tracking-tight">₫{place.price}</span>
                 </div>
              </div>
            ))}
